@@ -1,0 +1,143 @@
+{
+  "basics": {
+    "name": "Mario Rossi",
+    "label": "Tecnico IT · Cybersecurity & Cloud",
+    "image": "",
+    "email": "mario.rossi@email.com",
+    "phone": "+39 333 456 7890",
+    "url": "https://mariorossi.github.io",
+    "summary": "Diplomato ITS Umbria Academy in Information Technology. Ho esperienza pratica in sviluppo Python, amministrazione reti e sicurezza informatica acquisita durante il percorso formativo e il tirocinio. Cerco un ruolo in ambito IT dove continuare a crescere tecnicamente.",
+    "location": {
+      "city": "Perugia",
+      "countryCode": "IT",
+      "region": "Umbria"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "mariorossi",
+        "url": "https://github.com/mariorossi"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "mariorossi",
+        "url": "https://linkedin.com/in/mariorossi"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Azienda XYZ S.r.l.",
+      "position": "Tirocinante IT",
+      "url": "",
+      "startDate": "2024-09-01",
+      "endDate": "2025-01-31",
+      "summary": "",
+      "highlights": [
+        "Supporto al team IT per configurazione postazioni e gestione helpdesk",
+        "Sviluppo di una web app interna per il tracciamento dei ticket (Flask + SQLite)",
+        "Attività di patching e monitoraggio della rete aziendale"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "ITS Umbria Academy",
+      "url": "https://itsumbria.it",
+      "area": "Information Technology",
+      "studyType": "Tecnico Superiore",
+      "startDate": "2022-10-01",
+      "endDate": "2025-02-28",
+      "score": "",
+      "courses": [
+        "Python, C#, Java",
+        "Sviluppo Web",
+        "Reti e Cybersecurity",
+        "Cloud Azure",
+        "Project Management Agile"
+      ]
+    },
+    {
+      "institution": "Liceo Scientifico Galileo Galilei",
+      "url": "",
+      "area": "",
+      "studyType": "Diploma di Maturità Scientifica",
+      "startDate": "2017-09-01",
+      "endDate": "2022-06-30",
+      "score": "85/100",
+      "courses": []
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Microsoft AZ-900 — Azure Fundamentals",
+      "date": "2024-06-01",
+      "issuer": "Microsoft",
+      "url": ""
+    },
+    {
+      "name": "Cisco CCNA — Introduction to Networks",
+      "date": "2024-03-01",
+      "issuer": "Cisco",
+      "url": ""
+    },
+    {
+      "name": "Cambridge FCE — English B2",
+      "date": "2022-05-01",
+      "issuer": "Cambridge Assessment",
+      "url": ""
+    }
+  ],
+  "skills": [
+    {
+      "name": "Linguaggi",
+      "level": "",
+      "keywords": ["Python", "JavaScript", "SQL", "C#", "Bash"]
+    },
+    {
+      "name": "Reti & Sicurezza",
+      "level": "",
+      "keywords": ["TCP/IP", "VLAN", "Firewall", "GDPR", "Wireshark"]
+    },
+    {
+      "name": "Cloud & Infra",
+      "level": "",
+      "keywords": ["Azure", "Linux", "Docker", "Git"]
+    },
+    {
+      "name": "Tools",
+      "level": "",
+      "keywords": ["VS Code", "GitHub", "Jira", "Microsoft 365"]
+    }
+  ],
+  "languages": [
+    { "language": "Italiano", "fluency": "Madrelingua" },
+    { "language": "Inglese", "fluency": "B2" }
+  ],
+  "projects": [
+    {
+      "name": "network-scanner",
+      "startDate": "2024-01-01",
+      "endDate": "",
+      "description": "Tool Python per scansione e mappatura di reti locali. Rileva host attivi, porte aperte e servizi esposti.",
+      "highlights": ["Python", "Networking", "Socket"],
+      "url": "https://github.com/mariorossi/network-scanner"
+    },
+    {
+      "name": "azure-lab",
+      "startDate": "2024-03-01",
+      "endDate": "",
+      "description": "Documentazione e script del laboratorio Azure: VM, storage, gruppi di sicurezza.",
+      "highlights": ["Azure", "PowerShell", "IaC"],
+      "url": "https://github.com/mariorossi/azure-lab"
+    },
+    {
+      "name": "tirocinio-webapp",
+      "startDate": "2024-09-01",
+      "endDate": "2025-01-31",
+      "description": "Applicazione web per la gestione interna di ticket IT. Stack: Python Flask + SQLite.",
+      "highlights": ["Flask", "SQLite", "HTML/CSS"],
+      "url": "https://github.com/mariorossi/tirocinio-webapp"
+    }
+  ]
+}
