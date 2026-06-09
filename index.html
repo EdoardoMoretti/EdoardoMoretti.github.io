@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f1117; --surface: #181c27; --border: #252a38;
+      --accent: #4f8ef7; --accent2: #a78bfa;
+      --text: #e2e8f0; --muted: #7a8499;
+      --mono: 'IBM Plex Mono', monospace;
+      --sans: 'IBM Plex Sans', sans-serif;
+    }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.65; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .page { max-width: 860px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+
+    header { border-bottom: 1px solid var(--border); padding-bottom: 2rem; margin-bottom: 2.5rem; }
+    .header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap; }
+    .name-block h1 { font-family: var(--mono); font-size: 2rem; font-weight: 600; color: #fff; }
+    .name-block h1 span { color: var(--accent); }
+    .role-tag { display: inline-block; margin-top: 0.4rem; font-family: var(--mono); font-size: 0.78rem; color: var(--accent2); background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.25); border-radius: 4px; padding: 0.2rem 0.6rem; }
+    .contacts { display: flex; flex-direction: column; align-items: flex-end; gap: 0.3rem; font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+    .contacts a { color: var(--muted); }
+    .contacts a:hover { color: var(--accent); }
+    .summary { margin-top: 1.4rem; color: var(--muted); font-size: 0.95rem; max-width: 640px; border-left: 2px solid var(--accent); padding-left: 1rem; }
+
+    section { margin-bottom: 2.8rem; }
+    .section-label { font-family: var(--mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem 1.4rem; transition: border-color 0.2s, transform 0.2s; }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .proj-name { font-family: var(--mono); font-size: 0.9rem; font-weight: 600; color: #fff; margin-bottom: 0.4rem; }
+    .proj-name a { color: #fff; }
+    .proj-name a:hover { color: var(--accent); text-decoration: none; }
+    .proj-desc { font-size: 0.87rem; color: var(--muted); margin-bottom: 0.8rem; line-height: 1.5; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .tag { font-family: var(--mono); font-size: 0.7rem; color: var(--accent2); background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.18); border-radius: 3px; padding: 0.15rem 0.5rem; }
+
+    .entry { display: grid; grid-template-columns: 1fr auto; gap: 0 1rem; margin-bottom: 1.6rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--border); }
+    .entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .entry-title { font-weight: 600; font-size: 0.97rem; color: #fff; }
+    .entry-org { font-size: 0.87rem; color: var(--accent); margin-top: 0.15rem; }
+    .entry-date { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); text-align: right; white-space: nowrap; padding-top: 0.2rem; }
+    .entry-body { grid-column: 1 / -1; margin-top: 0.6rem; font-size: 0.88rem; color: var(--muted); }
+    .entry-body ul { padding-left: 1.1rem; }
+    .entry-body li { margin-bottom: 0.25rem; }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+    .skill-group { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; }
+    .skill-group-name { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); font-weight: 600; margin-bottom: 0.6rem; }
+    .skill-group .tag { color: var(--muted); background: rgba(255,255,255,0.04); border-color: var(--border); }
+
+    .cert-list { display: flex; flex-direction: column; gap: 0.7rem; }
+    .cert-item { display: flex; justify-content: space-between; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.7rem 1.1rem; font-size: 0.88rem; }
+    .cert-item span { color: var(--muted); font-family: var(--mono); font-size: 0.75rem; }
+
+    footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+
+    @media (max-width: 600px) {
+      .header-top { flex-direction: column; }
+      .contacts { align-items: flex-start; }
+      .entry { grid-template-columns: 1fr; }
+      .entry-date { text-align: left; }
+      .page { padding: 1.5rem 1rem 4rem; }
+    }
+    @media print {
+      body { background: #fff; color: #111; }
+      :root { --bg:#fff; --surface:#f8f8f8; --border:#ddd; --accent:#1a56db; --accent2:#7c3aed; --text:#111; --muted:#555; }
+    }
+  </style>
+</head>
+<body>
+<div class="page" id="root">
+  <p style="color:var(--muted);font-family:var(--mono);font-size:0.85rem;">Caricamento resume.json…</p>
+</div>
+
+<script>
+function fmt(dateStr) {
+  if (!dateStr) return 'presente';
+  const d = new Date(dateStr);
+  return d.toLocaleDateString('it-IT', { month: 'short', year: 'numeric' });
+}
+
+function tag(t) {
+  return `<span class="tag">${t}</span>`;
+}
+
+function render(r) {
+  const b = r.basics || {};
+  const github = (b.profiles || []).find(p => p.network.toLowerCase() === 'github');
+  const linkedin = (b.profiles || []).find(p => p.network.toLowerCase() === 'linkedin');
+  const nameParts = (b.name || '').split(' ');
+  const firstName = nameParts.slice(0, -1).join(' ');
+  const lastName = nameParts.slice(-1)[0] || '';
+
+  let html = `
+  <header>
+    <div class="header-top">
+      <div class="name-block">
+        <h1>${firstName} <span>${lastName}</span></h1>
+        ${b.label ? `<div class="role-tag">${b.label}</div>` : ''}
+      </div>
+      <div class="contacts">
+        ${b.email ? `<a href="mailto:${b.email}">${b.email}</a>` : ''}
+        ${github ? `<a href="${github.url}" target="_blank">${github.url.replace('https://', '')}</a>` : ''}
+        ${linkedin ? `<a href="${linkedin.url}" target="_blank">${linkedin.url.replace('https://', '')}</a>` : ''}
+        ${b.location ? `<span>${b.location.city}, ${b.location.region}</span>` : ''}
+      </div>
+    </div>
+    ${b.summary ? `<p class="summary">${b.summary}</p>` : ''}
+  </header>`;
+
+  // PROJECTS
+  if (r.projects && r.projects.length) {
+    html += `<section><div class="section-label">Progetti</div><div class="projects-grid">`;
+    r.projects.forEach(p => {
+      html += `
+      <div class="project-card">
+        <div class="proj-name">${p.url ? `<a href="${p.url}" target="_blank">${p.name}</a>` : p.name}</div>
+        ${p.description ? `<div class="proj-desc">${p.description}</div>` : ''}
+        ${p.highlights && p.highlights.length ? `<div class="tags">${p.highlights.map(tag).join('')}</div>` : ''}
+      </div>`;
+    });
+    html += `</div></section>`;
+  }
+
+  // WORK
+  if (r.work && r.work.length) {
+    html += `<section><div class="section-label">Esperienza</div>`;
+    r.work.forEach(w => {
+      html += `
+      <div class="entry">
+        <div>
+          <div class="entry-title">${w.position}</div>
+          <div class="entry-org">${w.url ? `<a href="${w.url}" target="_blank">${w.name}</a>` : w.name}</div>
+        </div>
+        <div class="entry-date">${fmt(w.startDate)} – ${fmt(w.endDate)}</div>
+        <div class="entry-body">
+          ${w.summary ? `<p>${w.summary}</p>` : ''}
+          ${w.highlights && w.highlights.length ? `<ul>${w.highlights.map(h => `<li>${h}</li>`).join('')}</ul>` : ''}
+        </div>
+      </div>`;
+    });
+    html += `</section>`;
+  }
+
+  // EDUCATION
+  if (r.education && r.education.length) {
+    html += `<section><div class="section-label">Formazione</div>`;
+    r.education.forEach(e => {
+      html += `
+      <div class="entry">
+        <div>
+          <div class="entry-title">${e.studyType}${e.area ? ' in ' + e.area : ''}</div>
+          <div class="entry-org">${e.url ? `<a href="${e.url}" target="_blank">${e.institution}</a>` : e.institution}</div>
+        </div>
+        <div class="entry-date">${fmt(e.startDate)} – ${fmt(e.endDate)}</div>
+        <div class="entry-body">
+          ${e.score ? `<p>Voto: ${e.score}</p>` : ''}
+          ${e.courses && e.courses.length ? `<p>${e.courses.join(' · ')}</p>` : ''}
+        </div>
+      </div>`;
+    });
+    html += `</section>`;
+  }
+
+  // SKILLS
+  if (r.skills && r.skills.length) {
+    html += `<section><div class="section-label">Competenze tecniche</div><div class="skills-grid">`;
+    r.skills.forEach(s => {
+      html += `
+      <div class="skill-group">
+        <div class="skill-group-name">${s.name}</div>
+        <div class="tags">${s.keywords.map(tag).join('')}</div>
+      </div>`;
+    });
+    html += `</div></section>`;
+  }
+
+  // CERTIFICATES
+  if (r.certificates && r.certificates.length) {
+    html += `<section><div class="section-label">Certificazioni</div><div class="cert-list">`;
+    r.certificates.forEach(c => {
+      html += `
+      <div class="cert-item">
+        ${c.url ? `<a href="${c.url}" target="_blank">${c.name}</a>` : c.name}
+        <span>${c.date ? c.date.substring(0,4) : ''}</span>
+      </div>`;
+    });
+    html += `</div></section>`;
+  }
+
+  // LANGUAGES
+  if (r.languages && r.languages.length) {
+    html += `<section><div class="section-label">Lingue</div><div class="tags">`;
+    r.languages.forEach(l => {
+      html += `<span class="tag">${l.language} — ${l.fluency}</span>`;
+    });
+    html += `</div></section>`;
+  }
+
+  const today = new Date().toLocaleDateString('it-IT', { month: 'long', year: 'numeric' });
+  html += `
+  <footer>
+    <span>Autorizzo il trattamento dei dati personali ai sensi del GDPR 2016/679</span>
+    <span>Aggiornato: ${today}</span>
+  </footer>`;
+
+  document.getElementById('root').innerHTML = html;
+  document.title = (b.name || 'CV') + ' — ' + (b.label || '');
+}
+
+fetch('resume.json')
+  .then(r => r.json())
+  .then(render)
+  .catch(err => {
+    document.getElementById('root').innerHTML = `
+      <p style="color:#f87171;font-family:var(--mono);font-size:0.85rem;">
+        Errore: resume.json non trovato o non valido.<br>
+        Assicurati che i due file siano nella stessa cartella.
+      </p>`;
+  });
+</script>
+</body>
+</html>
